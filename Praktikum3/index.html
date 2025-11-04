@@ -12,9 +12,14 @@
         <img src="./plauderecke_logo.jpg" alt="PlauderEcke Logo" />
         <h1>PlauderEcke</h1>
         <nav>
-            <a href="./index.html">Abonnierte Podcasts</a>
-            <a href="./podcast.html">Podcast-Details</a>
+            <a href="./index.html">Abonnierte Podcasts</a> | 
+            <a href="./podcast.html">Podcast-Details</a> | 
             <a href="./episode.html">Episoden</a>
+            <form method="get">
+                <label> Titel:
+                <input type="search" placeholder="Suche Podcast" name="pctitle" max-length="100" pattern="[A-Z][a-z]*" required/></label>
+                <button type="submit">Finden</button>
+            </form>
         </nav>
     </header>
     <main>
