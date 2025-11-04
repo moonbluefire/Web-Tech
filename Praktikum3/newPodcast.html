@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="./plauderecke_logo.jpg" alt="PlauderEcke Logo"  />
+        <h1>Neuen Podcast erstellen</h1>
+        <nav>
+            <a href="./index.html">Abonnierte Podcasts</a> | 
+            <a href="./podcast.html">Podcast-Details</a> | 
+            <a href="./episode.html">Episoden</a> | 
+            <a href="./newPodcast.html">Neuen Podcast erstellen</a>
+        </nav>
+    </header>
+    <form action="https://edu.inf.fh-dortmund.de/podcastService/testCreatePodcast.php" method="post">
+        <fieldset>
+            <legend>Kerndaten</legend>
+            <label> Titel:
+                <input type="text" name="pctitle" placeholder="Titel des Podcasts" max-length="100" pattern="[A-Z][a-z]*" required/>
+            </label> <br>
+            <label> Beschreibung:
+                <input name="pcdescription" type="textarea" rows="5" max-length="500" placeholder="Beschreibung des Podcasts-Inhalt"/>
+            </label> <br>
+            <label> Autor(en):
+                <input type="text" name="pcauthors" pattern="([A-Z][a-z]+\s)+" placeholder="z.B. Max Mustermann, John Doe"/>
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Infos zum Besitzer</legend>
+            <label> Name des Besitzers:
+                <input type="text" name="pcownername" placeholder="z.B. Max Mustermann" required/>
+            </label> <br>
+            <label> E-Mail des Besitzers:
+                <input type="email" name="pcowneremail" placeholder="max.mustermann@gmail.com" required/>
+            </label>
+        </fieldset>
+        <fieldset>
+        <legend>Kategorie(n):</legend> 
+            <input type="checkbox" name="pccategories" value="comedy"/>Comedy <br>
+            <input type="checkbox" name="pccategories" value="bildung">Bildung <br>
+            <input type="checkbox" name="pccategories" value="lifestyle">Lifestyle <br>
+            <input type="checkbox" name="pccategories" value="kultur">Kultur <br>
+            <input type="checkbox" name="pccategories" value="gesellschaft">Gesellschaft <br>
+            <input type="checkbox" name="pccategories" value="technologie">Technologie <br>
+            <input type="checkbox" name="pccategories" value="beauty">Beauty <br>
+            <input type="checkbox" name="pccategories" value="gesundheit">Gesundheit <br>
+            <input type="checkbox" name="pccategories" value="lektuere">Lektüre <br>
+            <input type="checkbox" name="pccategories" value="dokumentation">Dokumentation <br>
+        </fieldset>
+        <fieldset>
+            <legend>Letzte Episode</legend>
+            <label>Letztes Update (Datum):
+                <input type="date" name="pclastupdatedate" pattern="[2000-2025]-[1-12]-[1-31]" required/>
+            </label> <br>
+            <label>Letztes Update (Uhrzeit):
+                <input type="time" name="pclastupdatetime" required/>
+            </label>
+        </fieldset>
+        <button type="submit">Podcast hinzufügen</button>
+    </form>
+    <aside>
+        <h2>Neuerscheinungen</h2>
+        <ul>
+            <li> 28.10.2025: Offline + Ehrlich, Live aus Berlin - Fitna in Freundesguppe stiften </li>
+            <li> 30.10.2025: Working Draft, HTML5: Neue Elemente und ihre Bedeutung </li>
+        </ul>
+    </aside>
+
+    <footer>
+        <small>&copy; 2025 Podcast Inc.</small>
+    </footer>
+</body>
+</html>
