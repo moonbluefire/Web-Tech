@@ -1,0 +1,26 @@
+h1 {
+    color: purple;
+    font-family:'Times New Roman', Times, serif;
+}
+
+h2 {
+    color: violet;
+    font-family:'Times New Roman', Times, serif;
+}
+
+nav, aside {
+    background-color: lightgray;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+legend, label {
+    font-weight: bold;
+}
+
+aside {
+    border-radius: 8px;
+    padding: 2.5px;
+}
