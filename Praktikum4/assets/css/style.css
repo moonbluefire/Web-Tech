@@ -7,3 +7,15 @@ h2 {
     color: violet;
     font-family:'Times New Roman', Times, serif;
 }
+
+nav, aside {
+    background-color: lightgray;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+legend, label {
+    font-weight: bold;
+}
