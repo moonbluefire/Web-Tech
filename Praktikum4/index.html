@@ -5,11 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlauderEcke</title> <!--Seitentitel-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
 
 <body>
     <header> <!--Kopfbereich der Seite-->
-        <img src="./plauderecke_logo.jpg" alt="PlauderEcke Logo" /> <!--Logo der Website-->
+        <img src="./assets/img/plauderecke_logo.jpg" alt="PlauderEcke Logo" /> <!--Logo der Website-->
         <h1>PlauderEcke</h1> <!--Unsere Website Überschrift: PlauderEcke-->
         <nav> <!--Navigationsleiste-->
             <a href="./index.html">Abonnierte Podcasts</a> |<!--Hier ist der Hyperlink zu den Abonnierten Podcasts-->
@@ -18,7 +19,7 @@
             <a href="./newPodcast.html">Neuen Podcast erstellen</a> <!--Hier ist der hyperlink zum Podcast Formular-->
             <form action="https://edu.inf.fh-dortmund.de/podcastService/testPodcastSearch.php" method="get"> <!--Suchformular-->
                 <label> Titel: <!--Suchfeld für Podcast Titel-->
-                <input type="search" placeholder="Suche Podcast" name="pctitle" max-length="100" pattern="[A-Z]*" required/></label> <!--Eingabefeld für die Suche-->
+                <input type="search" placeholder="Suche Podcast" name="pctitle" max-length="100" pattern="([A-Z][a-z]+)(\s|\+)*" required/></label> <!--Eingabefeld für die Suche-->
                 <button type="submit">Finden</button> <!--Suchbutton-->
             </form>
         </nav>
