@@ -20,13 +20,13 @@
         <fieldset>
             <legend>Kerndaten</legend>
             <label> Titel:
-                <input type="text" name="pctitle" placeholder="Titel des Podcasts" max-length="100" pattern="[A-Z][a-z]*" required/>
+                <input type="text" name="pctitle" placeholder="Titel des Podcasts" max-length="100" pattern="([A-Z][a-z]+)(\s)*" required/>
             </label> <br>
-            <label> Beschreibung:
-                <textarea name="pcdescription" rows="5" max-length="500" placeholder="Beschreibung des Podcasts-Inhalt"></textarea>
+            <label> Beschreibung: <br>
+                <textarea name="pcdescription" rows="5" cols="50" max-length="500" placeholder="Beschreibung des Podcasts-Inhalt"></textarea>
             </label> <br>
             <label> Autor(en):
-                <input type="text" name="pcauthors" pattern="[A-Z\s\+\-\,]*" placeholder="z.B. Max Mustermann, John Doe"/>
+                <input type="text" name="pcauthors" pattern="([A-Z][a-z]+)(\s|\,)*" placeholder="z.B. Max Mustermann, John Doe"/>
             </label>
         </fieldset>
         <fieldset>
