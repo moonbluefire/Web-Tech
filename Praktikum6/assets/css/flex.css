@@ -1,0 +1,12 @@
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    flex: 6;
+}
+
+aside {
+    flex: 3;
+}
