@@ -1,6 +1,13 @@
-.flex {
+.index {
     display: flex;
     justify-content: center;
+    padding: 20px;
+}
+
+.episoden {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
 main {
