@@ -1,0 +1,19 @@
+.index {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.episoden {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    flex: 6;
+}
+
+aside {
+    flex: 3;
+}
