@@ -25,9 +25,40 @@ main {
     padding: 20px;
 }
 
+.direction{
+    display: grid;
+    grid-template-areas:
+        "logo h1";
+    gap: 10px;
+}
+
 h2 { grid-area: titel;}
 figure { grid-area: bild; }
 form { grid-area: formular; }
 aside { grid-area: zusatz; }
 #info { grid-area: info; }
 #episoden { grid-area: tabelle; }
+.direction h1 { grid-area: h1; }
+.direction img { grid-area: logo; }
+
+@media screen and (max-width: 480px) {
+    .podcast {
+        grid-template-areas: 
+            "titel"
+            "main"
+            "zusatz";
+    }
+
+    main {
+        grid-template-areas: 
+            "info"
+            "tabelle"
+            "bild";
+    }
+    
+    .direction{
+        grid-template-areas:
+            "logo"
+            "h1";
+    }
+}

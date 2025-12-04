@@ -20,6 +20,8 @@ nav a {
     text-decoration: none;
     border: 1px solid purple;
     border-radius: 4px;
+    padding: 0px 2px 0px 2px;
+    margin: 2px;
 }
 
 nav a:hover {
