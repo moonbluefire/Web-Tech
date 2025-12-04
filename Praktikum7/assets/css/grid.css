@@ -41,6 +41,20 @@ aside { grid-area: zusatz; }
 .direction h1 { grid-area: h1; }
 .direction img { grid-area: logo; }
 
+@media screen and (max-width: 768px) {
+    .podcast{
+        grid-template-areas:
+            "main"
+            "zusatz";
+    }
+
+    .newPodcast {
+        grid-template-areas:
+            "formular"
+            "zusatz";
+    }
+}
+
 @media screen and (max-width: 480px) {
     .podcast {
         grid-template-areas: 
