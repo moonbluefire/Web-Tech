@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head> <!--Dokumenttyp und Spracheinstellung-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlauderEcke</title> <!--Seitentitel-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/flex.css"/>
+</head>
+
+<body>
+    <header> <!--Kopfbereich der Seite-->
+        <div class="direction">
+            <img id="logo" src="./assets/img/plauderecke_logo.jpg" alt="PlauderEcke Logo" /> <!--Logo der Website-->
+            <h1>PlauderEcke</h1> <!--Unsere Website Überschrift: PlauderEcke-->
+        </div>
+        <nav> <!--Navigationsleiste-->
+            <a href="./index.html">Abonnierte Podcasts</a> <!--Hier ist der Hyperlink zu den Abonnierten Podcasts-->
+            <a href="./podcast.html">Podcast-Details</a> <!--Hier ist der Hyperlink zu den Details der jeweiligen Podcasts-->
+            <a href="./episode.html">Episoden</a> <!--Hier ist der Hyperlink zu den Episoden der Podcasts-->
+            <a href="./newPodcast.html">Neuen Podcast erstellen</a> <!--Hier ist der hyperlink zum Podcast Formular-->
+            <a href="./index2.html">Neue Index-Seite</a>
+        </nav>
+    </header>
+    <div class="index">
+        <main> <!--Hauptinhalt der Seite-->
+            <h2>Alle abonnierten Podcasts</h2> <!--Überschrift für abonnierte Podcasts-->
+            <form action="https://edu.inf.fh-dortmund.de/podcastService/testPodcastSearch.php" method="get"> <!--Suchformular-->
+                    <label> Titel: <!--Suchfeld für Podcast Titel-->
+                    <input type="search" placeholder="Suche Podcast" name="pctitle" max-length="100" pattern="([A-Z][a-z]+)(\s|\+)*" required/></label> <!--Eingabefeld für die Suche-->
+                    <button type="submit">Finden</button> <!--Suchbutton-->
+                </form><br>
+            <div class="kachel">
+                <a href="./podcast.html">
+                    <img src="./assets/img/offline_+_ehrlich_logo.jpg" width="100" height="100"><br>
+                    Working Draft
+                </a>
+                <a href="./podcast.html">
+                    <img src="./assets/img/offline_+_ehrlich_logo.jpg" width="100" height="100"><br>
+                    Offline+Ehrlich
+                </a>
+                <a href="./podcast.html">
+                    <img src="./assets/img/offline_+_ehrlich_logo.jpg" width="100" height="100"><br>
+                    Comfydences
+                </a>
+                <a href="./podcast.html">
+                    <img src="./assets/img/offline_+_ehrlich_logo.jpg" width="100" height="100"><br>
+                    Gym bros
+                </a>
+            </div>
+            
+        </main>
+        <aside> <!--Seitenleiste-->
+            <h2>Neuerscheinungen</h2> <!--Neuerscheinungen der Podcasts-->
+
+            
+            <ul> <!--Liste der Neuerscheinungen-->
+                <li> 28.10.2025: Offline + Ehrlich, Live aus Berlin - Fitna in Freundesgruppe stiften </li> <!--Neuerscheinung 1-->
+                <li> 30.10.2025: Working Draft, HTML5: Neue Elemente und ihre Bedeutung </li> <!--Neuerscheinung 2-->
+            </ul>
+        </aside>
+    </div>
+    <footer> <!--Fußbereich der Seite-->
+        <small>&copy; 2025 Podcast Inc.</small> <!--Urheberrechtshinweis-->
+    </footer>
+</body>
+
+</html>
