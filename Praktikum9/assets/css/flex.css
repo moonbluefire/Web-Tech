@@ -10,6 +10,13 @@
     padding: 20px;
 }
 
+.kachel {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
 @media screen and (max-width: 768px) {
     .index {
         flex-direction: column;
