@@ -73,6 +73,5 @@ footer {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    background-color: aqua;
     gap: 15px;
 }
