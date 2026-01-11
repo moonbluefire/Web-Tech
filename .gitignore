@@ -1,0 +1,21 @@
+# Abhängigkeiten
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+cache/
+
+# Production / Build
+dist/
+build/
+
+# Umgebungsvariablen (WICHTIG: enthält Passwörter/Keys)
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

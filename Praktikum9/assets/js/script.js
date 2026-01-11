@@ -30,6 +30,7 @@ function Episode(titel, beschreibung, dauer, datum){
     this.beschreibung = beschreibung;
     this.dauer = dauer;
     this.datum = datum;
+    this.audio = [];
     this.getDauerInStundenUndMinuten = function() {
         return `${Math.floor(this.dauer / 3600000)} Stunden und ${(this.dauer % 3600000)/60000} Minuten`;
     }
@@ -93,6 +94,35 @@ let episode4 = new Episode(
     3000000,
     new Date("2024-05-25")
 );
+
+let audio1 = new EpisodeAudio(
+    "http://techtalk.example.com/episodes/ki.mp3",
+    50000000,
+    "audio/mpeg"
+);
+
+let audio2 = new EpisodeAudio(
+    "http://geschichtenzeit.example.com/episodes/dschungel.mp3",
+    30000000,
+    "audio/mpeg"
+);
+
+let audio3 = new EpisodeAudio(
+    "http://techtalk.example.com/episodes/blockchain.mp3",
+    40000000,
+    "audio/mpeg"
+);
+
+let audio4 = new EpisodeAudio(
+    "http://geschichtenzeit.example.com/episodes/mythen.mp3",
+    35000000,
+    "audio/mpeg"
+);
+
+episode1.audio.push(audio1);
+episode2.audio.push(audio2);
+episode3.audio.push(audio3);
+episode4.audio.push(audio4);
 
 podcast1.addEpisoden(episode1);
 podcast1.addEpisoden(episode3);
