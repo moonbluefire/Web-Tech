@@ -4,7 +4,7 @@ const parser = require("./podcastParser");
 // Copy your code for the objects "Podcast", "Episode", and "EpisodeAudio"
 // from lab assignment 8 here (without example data!)
 
-function Podcast(titel, beschreibung, autor, besitzerName, besitzerEmail, bildUrl, feedUrl, kategorien, letztesUpdate) {
+function Podcast(titel, beschreibung, autor, besitzerName, besitzerEmail, bildUrl, feedUrl, feed, kategorien, letztesUpdate) {
     this.titel = titel;
     this.beschreibung = beschreibung;
     this.autor = autor;
@@ -12,6 +12,7 @@ function Podcast(titel, beschreibung, autor, besitzerName, besitzerEmail, bildUr
     this.besitzerEmail = besitzerEmail;
     this.bildUrl = bildUrl;
     this.feedUrl = feedUrl;
+    this.feed = feed;
     this.kategorien = kategorien;
     this.letztesUpdate = letztesUpdate;
     this.episoden = [];
@@ -19,17 +20,25 @@ function Podcast(titel, beschreibung, autor, besitzerName, besitzerEmail, bildUr
         this.episoden.push(episode);
         this.episoden.sort((a, b) => b.datum - a.datum);
     }
+    this.feed.episodes.map((element) => {
+      return new Episode(element.title, element.description, element.duration, element.pubDate, element.link, element.enclosures);
+    }).forEach((e) => Podcast.addEpisoden(e));
 }
 
-function Episode(titel, beschreibung, dauer, datum){
+function Episode(titel, beschreibung, dauer, datum, url, enclosures){
     this.titel = titel;
     this.beschreibung = beschreibung;
     this.dauer = dauer;
     this.datum = datum;
+    this.url = url;
     this.audio = [];
+    this.enclosures = enclosures;
     this.addAudio = function(audio) {
         this.audio.push(audio);
     }
+    this.enclosures.map((enc) => { //map klappt nicht, da nur ein tag mit ner url ist
+      return new EpisodeAudio(enc.url, enc.length, enc.type);
+    }).forEach((ea) => this.episoden.forEach((ep) => ep.addAudio(ea)))
     this.getDauerInStundenUndMinuten = function() {
         return `${Math.floor(this.dauer / 3600000)} Stunden und ${(this.dauer % 3600000)/60000} Minuten`;
     }
@@ -68,7 +77,9 @@ function convert(url, feed) {
   // [TODO]
   // Implement function
 
-  //console.log({url, feed});
+  console.log({url, feed});
+
+  console.log(feed.episodes[1].enclosures);
 
   const podcast = new Podcast(
     feed.title,
@@ -78,14 +89,9 @@ function convert(url, feed) {
     "",
     feed.image || "",
     url,
+    feed,
     feed.categories || [],
-    feed.lastBuildDate ? new Date(feed.lastBuildDate) : new Date(),
-    feed.episodes.map((element) => {
-      return new Episode(element.title, element.description, element.duration, element.pubDate);
-    }).forEach((e) => this.addEpisoden(e)),
-    feed.episodes.enclosures.map((enc) => {
-      return new EpisodeAudio(enc.url, enc.length, enc.type);
-    }).forEach((ea) => this.episoden.forEach((ep) => ep.addAudio(ea)))
+    feed.lastBuildDate ? new Date(feed.lastBuildDate) : new Date()
   );
 
   
