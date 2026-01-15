@@ -21,27 +21,26 @@ function Podcast(titel, beschreibung, autor, besitzerName, besitzerEmail, bildUr
         this.episoden.sort((a, b) => b.datum - a.datum);
     }
     this.feed.episodes.map((element) => {
-      return new Episode(element.title, element.description, element.duration, element.pubDate, element.link, element.enclosures);
-    }).forEach((e) => Podcast.addEpisoden(e));
+      return new Episode(element.title, element.description, element.duration, element.pubDate, element.link, element.enclosure);
+    }).forEach((e) => this.addEpisoden(e));
 }
 
-function Episode(titel, beschreibung, dauer, datum, url, enclosures){
+function Episode(titel, beschreibung, dauer, datum, url, enclosure){
     this.titel = titel;
     this.beschreibung = beschreibung;
     this.dauer = dauer;
     this.datum = datum;
     this.url = url;
     this.audio = [];
-    this.enclosures = enclosures;
+    this.enclosure = enclosure;
     this.addAudio = function(audio) {
         this.audio.push(audio);
     }
-    this.enclosures.map((enc) => { //map klappt nicht, da nur ein tag mit ner url ist
-      return new EpisodeAudio(enc.url, enc.length, enc.type);
-    }).forEach((ea) => this.episoden.forEach((ep) => ep.addAudio(ea)))
     this.getDauerInStundenUndMinuten = function() {
         return `${Math.floor(this.dauer / 3600000)} Stunden und ${(this.dauer % 3600000)/60000} Minuten`;
     }
+
+    this.addAudio(new EpisodeAudio(this.enclosure.url, this.enclosure.length, this.enclosure.type))
 }
 
 function EpisodeAudio(url, groesse, typ){
@@ -77,25 +76,21 @@ function convert(url, feed) {
   // [TODO]
   // Implement function
 
-  console.log({url, feed});
-
-  console.log(feed.episodes[1].enclosures);
+  //console.log({url, feed});
+  //console.log(feed.meta.owner);
 
   const podcast = new Podcast(
-    feed.title,
-    feed.description,
-    feed.author || "",
-    "",
-    "",
-    feed.image || "",
+    feed.meta.title,
+    feed.meta.description,
+    feed.meta.author || "",
+    feed.meta.owner.name,
+    feed.meta.owner.email,
+    feed.meta.imageURL,
     url,
     feed,
-    feed.categories || [],
-    feed.lastBuildDate ? new Date(feed.lastBuildDate) : new Date()
+    feed.meta.categories || [],
+    feed.meta.lastBuildDate ? new Date(feed.meta.lastBuildDate) : new Date()
   );
-
-  
-  
 
   return podcast;
 
