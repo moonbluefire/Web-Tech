@@ -1,5 +1,5 @@
 
-const persistence = data;
+const persistence = { podcasts: data};
 
 let check = true;
 
@@ -41,11 +41,11 @@ const kachel = persistence.podcasts.map((e) => createKachel(e));
 const items = persistence.podcasts.map((e) => createItems(e));
 
 const liste = document.createElement("ul");
-liste.appendChildren(items);
+liste.append(items);
 
-btn.textContent("Listenansicht");
+btn.textContent = "Listenansicht";
 container.classList.add("kachel");
-container.appendChild(kachel);
+container.append(kachel);
 
 function wechsel(check) {
     if(check){

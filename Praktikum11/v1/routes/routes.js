@@ -9,7 +9,7 @@ router.get("/", function (req, res) {
   // [TODO]
   // Implement: Display list of subscribed podcasts
   console.log("B");
-  res.render("index", { podcasts : persistence.podcasts});
+  res.render("index", { podcasts : [] }); //persistence.podcasts});
 });
 
 router.get("/podcast", function (req, res) {
