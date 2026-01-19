@@ -1,0 +1,42 @@
+input[required]:invalid {
+    border: none;
+    border-bottom: 1px solid red;
+}
+
+input:active {
+    background-color: lightgray;
+}
+
+label:has(input[required])::after {
+    content: "*";
+    color: red;
+}
+
+button {
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: gray;
+    color: white;
+}
+
+legend {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-radius: 6px;
+}
+
+fieldset {
+    border: none;
+    background-color: rgb(255, 242, 255);
+    border-top: 1px solid gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid gray;
+}

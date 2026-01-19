@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlauderEcke</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/grid.css"/>
+    <style>
+        tbody tr:nth-child(odd) {
+            background-color: rgb(255, 242, 255);
+        }
+        thead {
+            background-color: purple;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("header") %>
+    <div class="podcast">
+        <main>
+            <h2>pod.titel</h2>
+            <figure>
+                <img src="<%= encodeURI(pod.bildUrl) %>" width="300" height="300"/> 
+            </figure>
+            <section id="info">
+                <h2>Informationen zum Podcast</h2>
+                <strong>Titel:</strong> <%= pod.titel %><br>
+                <p>
+                    <%= pod.beschreibung %>
+                </p>
+                <strong>Autor*in:</strong> <a href="mailto:<%= pod.besitzerEmail %>"><%= pod.besitzerName %></a><br>
+                <strong>Kategorien:</strong><% for(let cat in pod.kategorien) { cat,} %><br>
+                <strong>Letztes Update:</strong> <% pod.letztesUpdate %>
+            </section>
+            <section id="episoden">
+                <h2>Episoden zum Podcast</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Titel </th>
+                            <th> Datum (des Erscheinens) </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let ep in pod.episoden) { %>
+                            <tr>
+                                <td> <a href="./episode"> <%= ep.titel %></a> </td>
+                                <td> <%= ep.datum %> </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <%- include("neuerscheinungen") %>
+    </div>
+    <%- include("footer") %>
+</body>
+
+</html>

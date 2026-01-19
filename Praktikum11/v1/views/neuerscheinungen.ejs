@@ -1,0 +1,8 @@
+<aside>
+    <h2>Neuerscheinungen</h2>
+    <ul>
+        <% for(let pod in podcasts) { %>
+            <li> <%= pod.episoden[0].datum %>: <%= pod.titel %> - <%= pod.episoden[0].titel %> </li>
+        <% } %>
+    </ul>
+</aside>

@@ -1,0 +1,25 @@
+.index {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.episoden {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .index {
+        flex-direction: column;
+    }
+    .episoden {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .direction {
+        display: flex;
+        flex-direction: column;
+    }
+}

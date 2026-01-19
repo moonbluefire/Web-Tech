@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlauderEcke</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/flex.css"/>
+    <script src="/js/script.js"></script>
+    <script src="/js/index.js" defer></script>
+    <script>
+        const data = JSON.parse("<%= JSON.stringify(podcasts) %>");
+        console.log(data);
+    </script>
+</head>
+
+<body>
+    <%- include("header") %>
+    <div class="index">
+        <main>
+            <h2>Alle abonnierten Podcasts</h2>
+            <form action="https://edu.inf.fh-dortmund.de/podcastService/testPodcastSearch.php" method="get">
+                <label> Titel:
+                <input type="search" placeholder="Suche Podcast" name="pctitle" max-length="100" pattern="([A-Z][a-z]+)(\s|\+)*" required/></label>
+                <button type="submit">Finden</button>
+            </form>
+            <button id="btn"></button>
+            <div id="wechsel">
+                
+            </div>
+            <fieldset>
+                <legend>Podcast abonieren</legend>
+                <form action = "/subscribe" method="post">
+                    <label>URL: 
+                        <input type="url" name="pcurl"/> 
+                    </label>
+                    <button type="submit">Abonnieren</button>
+                </form>
+            </fieldset>
+        </main>
+        <%- include("neuerscheinungen", {podcast : podcasts}) %>
+    </div>
+    <%- include("footer") %>
+</body>
+
+</html>
