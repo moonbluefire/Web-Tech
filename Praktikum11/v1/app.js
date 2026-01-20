@@ -12,7 +12,7 @@ app.set("views", "views");
 app.use(router);
 
 app.use((req, res, next) => {
-    res.send(404);
+    res.status(404).render("fehlerseite");
 });
 
 app.listen(8020, () => {
