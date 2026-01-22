@@ -27,9 +27,26 @@
                 <input type="search" placeholder="Suche Podcast" name="pctitle" max-length="100" pattern="([A-Z][a-z]+)(\s|\+)*" required/></label>
                 <button type="submit">Finden</button>
             </form>
-            <button id="btn"></button>
-            <div id="wechsel">
-                
+            <button id="btn"></button> <br>
+            <div class="kachel">
+                <% for(let pod of podcasts) { %>
+                    <a href="http://localhost:8020/podcast" id="<%= pod.titel.slice(0,8) %>">
+                        <img src="<%= pod.bildUrl %>" width="100" height="100" alt="<%= pod.titel %>"/>
+                        <br>
+                        <%= pod.titel %> - <%= pod.episoden[0].titel.slice(0,3) %>
+                    </a>
+                <% } %>
+            </div>
+            <div class="liste">
+                <ul>
+                    <% for(let pod of podcasts) { %>
+                        <li>
+                            <a href="http://localhost:8020/podcast" id="<%= pod.titel.slice(0,8) %>">
+                                <%= pod.titel %> - <%= pod.episoden[0].titel.slice(0,3) %>
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
             </div>
             <fieldset>
                 <legend>Podcast abonieren</legend>

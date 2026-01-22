@@ -24,7 +24,7 @@
         <main>
             <h2>pod.titel</h2>
             <figure>
-                <img src="<%= encodeURI(pod.bildUrl) %>" width="300" height="300"/> 
+                <img src="<%= pod.bildUrl %>" width="300" height="300"/> 
             </figure>
             <section id="info">
                 <h2>Informationen zum Podcast</h2>
@@ -33,7 +33,7 @@
                     <%= pod.beschreibung %>
                 </p>
                 <strong>Autor*in:</strong> <a href="mailto:<%= pod.besitzerEmail %>"><%= pod.besitzerName %></a><br>
-                <strong>Kategorien:</strong><% for(let cat in pod.kategorien) { cat,} %><br>
+                <strong>Kategorien:</strong> <% for(let cat of pod.kategorien) { cat,} %><br>
                 <strong>Letztes Update:</strong> <% pod.letztesUpdate %>
             </section>
             <section id="episoden">
@@ -46,7 +46,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for(let ep in pod.episoden) { %>
+                        <% for(let ep of pod.episoden) { %>
                             <tr>
                                 <td> <a href="./episode"> <%= ep.titel %></a> </td>
                                 <td> <%= ep.datum %> </td>
@@ -56,7 +56,7 @@
                 </table>
             </section>
         </main>
-        <%- include("neuerscheinungen") %>
+        <%- include("neuerscheinungen", {podcast : podcasts}) %>
     </div>
     <%- include("footer") %>
 </body>

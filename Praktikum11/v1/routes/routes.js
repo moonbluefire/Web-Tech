@@ -8,8 +8,8 @@ const router = express.Router();
 router.get("/", function (req, res) {
   // [TODO]
   // Implement: Display list of subscribed podcasts
-  console.log("B");
-  res.render("index", { podcasts : [] }); //persistence.podcasts});
+  //console.log("B");
+  res.render("index", { podcasts : persistence.podcasts});
 });
 
 router.get("/podcast", function (req, res) {
@@ -20,8 +20,8 @@ router.get("/podcast", function (req, res) {
   const query = req.query.pc;
   const podcast = "";
 
-  for(let pod in persistence.podcasts){
-    const titel = pod.titel.toLowercase().slice(0,8);
+  for(let pod of persistence.podcasts){
+    const titel = pod.titel.slice(0,8);
 
     if(titel === query){
       podcast = pod;
@@ -43,7 +43,7 @@ router.get("/episode", function (req, res) {
   const episode = "";
 
   for(let pod in persistence.podcasts){
-    const titel = pod.titel.toLowercase().slice(0,8);
+    const titel = pod.titel.slice(0,8);
 
     if(titel === query){
       podcast = pod;
@@ -66,9 +66,11 @@ router.post("/subscribe", function (req, res) {
   // Implement: Subscribe to a podcast
   //console.log(req.body);
 
-  persistence.subscribe(encodeURI(req.body.pcurl));
-  console.log("A");
-  res.redirect("/");
+  persistence.subscribe(encodeURI(req.body.pcurl), () => {
+    res.redirect("/");
+  });
+  //console.log("A");
+  //res.redirect("/");
 });
 
 module.exports = router;
